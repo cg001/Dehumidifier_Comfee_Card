@@ -1,8 +1,8 @@
-# Dehumidifier Comfee Card
+# Dehumidifier Comfee Lovelace Card - Home Assistant
 
 I have the Comfee [Deshumidificador MDDF-20DEN7-WF 20L/day](https://www.amazon.es/-/pt/gp/product/B07MSL8YN7) and I created a lovelace card for Home Assistant from [MauricioXavier13](https://github.com/MauricioXavier13/Dehumidifier_Comfee_Card) example but using [homeassistant-midea-dehumidifier-lan](https://github.com/nbogojevic/homeassistant-midea-dehumidifier-lan) integration.
 
-![example3](/assets/Example_3.jpg)
+![animation](/assets/Dehumidifier_Animation.gif)
 
 ## Home Assistant Cards, Configuration and information
 
@@ -34,9 +34,5 @@ Entities to replace:
 
 ### Examples
 
-![example2](/assets/Example_2.jpg)
-
-https://user-images.githubusercontent.com/74264882/111458565-7a3ddb00-8711-11eb-9adb-d3d79542a32d.mp4
-
-
-https://user-images.githubusercontent.com/74264882/111458584-7f9b2580-8711-11eb-918c-27fb9ca7ebe4.mp4
+![example1](/assets/Example_1.png) 
+![example1](/assets/Example_2.png)

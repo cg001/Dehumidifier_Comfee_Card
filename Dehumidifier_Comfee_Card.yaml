@@ -3,7 +3,7 @@
 ########################
 
 type: vertical-stack
-title: "Desumidificador Suite \U0001F4A6"
+title: "Dehumidifier Suite \U0001F4A6"
 cards:
   - type: entities
     show_header_toggle: false
@@ -11,7 +11,7 @@ cards:
       - entity: humidifier.dehumidifier_suite
         toggle: false
         type: custom:multiple-entity-row
-        name: Humidade
+        name: Humidity
         icon: mdi:water-percent
         state_header: State
         entities:
@@ -25,10 +25,10 @@ cards:
         type: custom:multiple-entity-row
         name: Status
         icon: mdi:format-list-bulleted-type
-        state_header: Descongelamento
+        state_header: Defrosting
         entities:
           - entity: sensor.dehumidifier_suite_temperature
-            name: Temperatura
+            name: Temperature
     header:
       type: picture
       image: >-
@@ -49,7 +49,7 @@ cards:
             40% { transform: translateX(-15px); }
             60% { transform: translateX(-10px); }
           }
-        name: Desumidificador
+        name: Dehumidifier
         icon: mdi:air-humidifier
         show_state: true
         show_icon: true
@@ -69,13 +69,13 @@ cards:
                 - animation: bounce 2s infinite
       - type: custom:button-card
         entity: binary_sensor.dehumidifier_suite_tank_full
-        name: Vazio
+        name: Empty
         show_icon: true
         show_name: true
         state:
           - value: 'on'
             icon: mdi:beaker-alert
-            name: Cheio
+            name: Full
             styles:
               card:
                 - background-color: orange
@@ -90,7 +90,7 @@ cards:
         state:
           - value: 'on'
             icon: mdi:air-filter
-            name: Manutenção
+            name: Maintenance
             styles:
               card:
                 - background-color: orange
@@ -147,7 +147,7 @@ cards:
           - operator: default
             icon: mdi:fan
             color: white
-            name: Desligada
+            name: "Off"
   - type: entities
     show_header_toggle: false
     entities:
