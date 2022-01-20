@@ -83,21 +83,6 @@ cards:
           - operator: default
             icon: mdi:beaker-outline
       - type: custom:button-card
-        entity: binary_sensor.dehumidifier_suite_replace_filter
-        name: OK
-        show_icon: true
-        show_name: true
-        state:
-          - value: 'on'
-            icon: mdi:air-filter
-            name: Maintenance
-            styles:
-              card:
-                - background-color: orange
-                - animation: blink 2s infinite
-          - operator: default
-            icon: mdi:air-filter
-      - type: custom:button-card
         entity: fan.dehumidifier_suite_fan
         show_icon: true
         show_name: true
@@ -105,7 +90,7 @@ cards:
           - operator: template
             value: |
               [[[
-               return (states['fan.dehumidifier_suite_fan'].attributes.preset_mode === 'Turbo' ) && states['humidifier.dehumidifier_suite'].state === 'on'
+               return (states['fan.dehumidifier_suite_fan'].attributes.preset_mode === 'High' ) && states['humidifier.dehumidifier_suite'].state === 'on'
               ]]]
             icon: mdi:fan
             color: yellow
@@ -133,11 +118,11 @@ cards:
           - operator: template
             value: |
               [[[
-               return (states['fan.dehumidifier_suite_fan'].attributes.preset_mode === 'Silent' ) && states['humidifier.dehumidifier_suite'].state === 'on'
+               return (states['fan.dehumidifier_suite_fan'].attributes.preset_mode === 'Low' ) && states['humidifier.dehumidifier_suite'].state === 'on'
               ]]]
             icon: mdi:fan
             color: yellow
-            name: Silent
+            name: Low
             styles:
               icon:
                 - animation:
@@ -276,19 +261,19 @@ cards:
       - type: custom:paper-buttons-row
         buttons:
           - icon: mdi:fan-speed-1
-            name: Silent
+            name: Low
             layout: icon_name
             tap_action:
               action: call-service
               service: fan.set_preset_mode
               service_data:
                 entity_id: fan.dehumidifier_suite_fan
-                preset_mode: Silent
+                preset_mode: Low
             style:
               button:
                 background-color: >
                   {% if is_state_attr('fan.dehumidifier_suite_fan',
-                  'preset_mode', 'Silent' ) and 
+                  'preset_mode', 'Low' ) and 
                   is_state('humidifier.dehumidifier_suite', 'on') %}
                     limegreen
                   {% else%}
@@ -296,7 +281,7 @@ cards:
                   {% endif %}
                 color: >
                   {% if is_state_attr('fan.dehumidifier_suite_fan',
-                  'preset_mode', 'Silent' ) and 
+                  'preset_mode', 'Low' ) and 
                   is_state('humidifier.dehumidifier_suite', 'on') %}
                     white
                   {% else%}
@@ -334,19 +319,19 @@ cards:
                 border-radius: 10px
                 opacity: 1
           - icon: mdi:fan-speed-3
-            name: Turbo
+            name: High
             layout: icon_name
             tap_action:
               action: call-service
               service: fan.set_preset_mode
               service_data:
                 entity_id: fan.dehumidifier_suite_fan
-                preset_mode: Turbo
+                preset_mode: High
             style:
               button:
                 background-color: >
                   {% if is_state_attr('fan.dehumidifier_suite_fan',
-                  'preset_mode', 'Turbo' ) and 
+                  'preset_mode', 'High' ) and 
                   is_state('humidifier.dehumidifier_suite', 'on') %}
                     limegreen
                   {% else%}
