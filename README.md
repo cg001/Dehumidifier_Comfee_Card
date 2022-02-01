@@ -36,3 +36,11 @@ Entities to replace:
 
 ![example1](/assets/Example_1.png) 
 ![example1](/assets/Example_2.png)
+
+### Changelog
+
+#### 2022-01-20
+
+- Update `Silent` to `Low`
+- Update `Turbo` to `High`
+- `replace_filter` was remove because it not supported by midea dehumidifier (https://github.com/nbogojevic/homeassistant-midea-air-appliances-lan/releases/tag/v0.6.0-beta)
