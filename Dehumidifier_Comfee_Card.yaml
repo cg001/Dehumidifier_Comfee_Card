@@ -8,7 +8,7 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
-      - entity: humidifier.dehumidifier_suite
+      - entity: humidifier.keller_luftentfeuchter
         toggle: false
         type: custom:multiple-entity-row
         name: Humidity
@@ -18,16 +18,16 @@ cards:
           - attribute: humidity
             name: Target
             unit: '%'
-          - entity: sensor.dehumidifier_suite_humidity
+          - entity: sensor.keller_luftentfeuchter_humidity
             name: Current
-      - entity: binary_sensor.dehumidifier_suite_defrosting
+      - entity: binary_sensor.keller_luftentfeuchter_defrosting
         toggle: false
         type: custom:multiple-entity-row
         name: Status
         icon: mdi:format-list-bulleted-type
         state_header: Defrosting
         entities:
-          - entity: sensor.dehumidifier_suite_temperature
+          - entity: sensor.keller_luftentfeuchter_temperature
             name: Temperature
     header:
       type: picture
@@ -40,9 +40,9 @@ cards:
           action: call-service
           service: humidifier.toggle
           service_data:
-            entity_id: humidifier.dehumidifier_suite
-        entity_id: humidifier.dehumidifier_suite
-        entity: humidifier.dehumidifier_suite
+            entity_id: humidifier.keller_luftentfeuchter
+        entity_id: humidifier.keller_luftentfeuchter
+        entity: humidifier.keller_luftentfeuchter
         extra_styles: |
           @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateX(0); }
@@ -68,7 +68,7 @@ cards:
                 - color: white
                 - animation: bounce 2s infinite
       - type: custom:button-card
-        entity: binary_sensor.dehumidifier_suite_tank_full
+        entity: binary_sensor.keller_luftentfeuchter_tank_full
         name: Empty
         show_icon: true
         show_name: true
@@ -83,14 +83,14 @@ cards:
           - operator: default
             icon: mdi:beaker-outline
       - type: custom:button-card
-        entity: fan.dehumidifier_suite_fan
+        entity: fan.keller_luftentfeuchter_fan
         show_icon: true
         show_name: true
         state:
           - operator: template
             value: |
               [[[
-               return (states['fan.dehumidifier_suite_fan'].attributes.preset_mode === 'High' ) && states['humidifier.dehumidifier_suite'].state === 'on'
+               return (states['fan.keller_luftentfeuchter_fan'].attributes.preset_mode === 'High' ) && states['humidifier.keller_luftentfeuchter'].state === 'on'
               ]]]
             icon: mdi:fan
             color: yellow
@@ -104,7 +104,7 @@ cards:
           - operator: template
             value: |
               [[[
-               return (states['fan.dehumidifier_suite_fan'].attributes.preset_mode === 'Medium' ) && states['humidifier.dehumidifier_suite'].state === 'on'
+               return (states['fan.keller_luftentfeuchter_fan'].attributes.preset_mode === 'Medium' ) && states['humidifier.keller_luftentfeuchter'].state === 'on'
               ]]]
             icon: mdi:fan
             color: yellow
@@ -118,7 +118,7 @@ cards:
           - operator: template
             value: |
               [[[
-               return (states['fan.dehumidifier_suite_fan'].attributes.preset_mode === 'Low' ) && states['humidifier.dehumidifier_suite'].state === 'on'
+               return (states['fan.keller_luftentfeuchter_fan'].attributes.preset_mode === 'Low' ) && states['humidifier.keller_luftentfeuchter'].state === 'on'
               ]]]
             icon: mdi:fan
             color: yellow
@@ -144,7 +144,7 @@ cards:
               action: call-service
               service: humidifier.set_mode
               service_data:
-                entity_id: humidifier.dehumidifier_suite
+                entity_id: humidifier.keller_luftentfeuchter
                 mode: Set
             icon: mdi:water-percent
             layout: icon_name
@@ -152,16 +152,16 @@ cards:
             style:
               button:
                 background-color: >
-                  {% if is_state_attr('humidifier.dehumidifier_suite', 'mode',
-                  'Set' ) and  is_state('humidifier.dehumidifier_suite', 'on')
+                  {% if is_state_attr('humidifier.keller_luftentfeuchter', 'mode',
+                  'Set' ) and  is_state('humidifier.keller_luftentfeuchter', 'on')
                   %}
                     limegreen
                   {% else%}
                     
                   {% endif %}
                 color: >
-                  {% if is_state_attr('humidifier.dehumidifier_suite', 'mode',
-                  'Set' ) and  is_state('humidifier.dehumidifier_suite', 'on')
+                  {% if is_state_attr('humidifier.keller_luftentfeuchter', 'mode',
+                  'Set' ) and  is_state('humidifier.keller_luftentfeuchter', 'on')
                   %}
                    white
                   {% else%}
@@ -174,23 +174,23 @@ cards:
               action: call-service
               service: humidifier.set_mode
               service_data:
-                entity_id: humidifier.dehumidifier_suite
+                entity_id: humidifier.keller_luftentfeuchter
                 mode: Smart
             layout: icon_name
             name: Smart
             style:
               button:
                 background-color: >
-                  {% if is_state_attr('humidifier.dehumidifier_suite', 'mode',
-                  'Smart' ) and  is_state('humidifier.dehumidifier_suite', 'on')
+                  {% if is_state_attr('humidifier.keller_luftentfeuchter', 'mode',
+                  'Smart' ) and  is_state('humidifier.keller_luftentfeuchter', 'on')
                   %}
                     limegreen
                   {% else%}
                     
                   {% endif %}
                 color: >
-                  {% if is_state_attr('humidifier.dehumidifier_suite', 'mode',
-                  'Smart' ) and  is_state('humidifier.dehumidifier_suite', 'on')
+                  {% if is_state_attr('humidifier.keller_luftentfeuchter', 'mode',
+                  'Smart' ) and  is_state('humidifier.keller_luftentfeuchter', 'on')
                   %}
                     white
                   {% else%}
@@ -205,21 +205,21 @@ cards:
               action: call-service
               service: humidifier.set_mode
               service_data:
-                entity_id: humidifier.dehumidifier_suite
+                entity_id: humidifier.keller_luftentfeuchter
                 mode: Continuous
             style:
               button:
                 background-color: >
-                  {% if is_state_attr('humidifier.dehumidifier_suite', 'mode',
-                  'Continuous' ) and  is_state('humidifier.dehumidifier_suite',
+                  {% if is_state_attr('humidifier.keller_luftentfeuchter', 'mode',
+                  'Continuous' ) and  is_state('humidifier.keller_luftentfeuchter',
                   'on') %}
                     limegreen
                   {% else%}
                     
                   {% endif %}
                 color: >
-                  {% if is_state_attr('humidifier.dehumidifier_suite', 'mode',
-                  'Continuous' ) and  is_state('humidifier.dehumidifier_suite',
+                  {% if is_state_attr('humidifier.keller_luftentfeuchter', 'mode',
+                  'Continuous' ) and  is_state('humidifier.keller_luftentfeuchter',
                   'on') %}
                     white
                   {% else%}
@@ -234,21 +234,21 @@ cards:
               action: call-service
               service: humidifier.set_mode
               service_data:
-                entity_id: humidifier.dehumidifier_suite
+                entity_id: humidifier.keller_luftentfeuchter
                 mode: Dry
             style:
               button:
                 background-color: >
-                  {% if is_state_attr('humidifier.dehumidifier_suite', 'mode',
-                  'Dry' ) and  is_state('humidifier.dehumidifier_suite', 'on')
+                  {% if is_state_attr('humidifier.keller_luftentfeuchter', 'mode',
+                  'Dry' ) and  is_state('humidifier.keller_luftentfeuchter', 'on')
                   %}
                     limegreen
                   {% else%}
                     
                   {% endif %}
                 color: >
-                  {% if is_state_attr('humidifier.dehumidifier_suite', 'mode',
-                  'Dry' ) and  is_state('humidifier.dehumidifier_suite', 'on')
+                  {% if is_state_attr('humidifier.keller_luftentfeuchter', 'mode',
+                  'Dry' ) and  is_state('humidifier.keller_luftentfeuchter', 'on')
                   %}
                     white
                   {% else%}
@@ -267,22 +267,22 @@ cards:
               action: call-service
               service: fan.set_preset_mode
               service_data:
-                entity_id: fan.dehumidifier_suite_fan
+                entity_id: fan.keller_luftentfeuchter_fan
                 preset_mode: Low
             style:
               button:
                 background-color: >
-                  {% if is_state_attr('fan.dehumidifier_suite_fan',
+                  {% if is_state_attr('fan.keller_luftentfeuchter_fan',
                   'preset_mode', 'Low' ) and 
-                  is_state('humidifier.dehumidifier_suite', 'on') %}
+                  is_state('humidifier.keller_luftentfeuchter', 'on') %}
                     limegreen
                   {% else%}
                     
                   {% endif %}
                 color: >
-                  {% if is_state_attr('fan.dehumidifier_suite_fan',
+                  {% if is_state_attr('fan.keller_luftentfeuchter_fan',
                   'preset_mode', 'Low' ) and 
-                  is_state('humidifier.dehumidifier_suite', 'on') %}
+                  is_state('humidifier.keller_luftentfeuchter', 'on') %}
                     white
                   {% else%}
                     
@@ -296,22 +296,22 @@ cards:
               action: call-service
               service: fan.set_preset_mode
               service_data:
-                entity_id: fan.dehumidifier_suite_fan
+                entity_id: fan.keller_luftentfeuchter_fan
                 preset_mode: Medium
             style:
               button:
                 background-color: >
-                  {% if is_state_attr('fan.dehumidifier_suite_fan',
+                  {% if is_state_attr('fan.keller_luftentfeuchter_fan',
                   'preset_mode', 'Medium' ) and 
-                  is_state('humidifier.dehumidifier_suite', 'on') %}
+                  is_state('humidifier.keller_luftentfeuchter', 'on') %}
                     limegreen
                   {% else%}
                     
                   {% endif %}
                 color: >
-                  {% if is_state_attr('fan.dehumidifier_suite_fan',
+                  {% if is_state_attr('fan.keller_luftentfeuchter_fan',
                   'preset_mode', 'Medium' ) and 
-                  is_state('humidifier.dehumidifier_suite', 'on') %}
+                  is_state('humidifier.keller_luftentfeuchter', 'on') %}
                     white
                   {% else%}
                     
@@ -325,22 +325,22 @@ cards:
               action: call-service
               service: fan.set_preset_mode
               service_data:
-                entity_id: fan.dehumidifier_suite_fan
+                entity_id: fan.keller_luftentfeuchter_fan
                 preset_mode: High
             style:
               button:
                 background-color: >
-                  {% if is_state_attr('fan.dehumidifier_suite_fan',
+                  {% if is_state_attr('fan.keller_luftentfeuchter_fan',
                   'preset_mode', 'High' ) and 
-                  is_state('humidifier.dehumidifier_suite', 'on') %}
+                  is_state('humidifier.keller_luftentfeuchter', 'on') %}
                     limegreen
                   {% else%}
                     
                   {% endif %}
                 color: >
-                  {% if is_state_attr('fan.dehumidifier_suite_fan',
+                  {% if is_state_attr('fan.keller_luftentfeuchter_fan',
                   'preset_mode', 'High' ) and 
-                  is_state('humidifier.dehumidifier_suite', 'on') %}
+                  is_state('humidifier.keller_luftentfeuchter', 'on') %}
                     white
                   {% else%}
                     
